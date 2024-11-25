@@ -1,7 +1,7 @@
 import os
 import json
 
-from gb_assistant.pdf_extractor.params import LOCAL_DATA_PATH
+from gb_assistant.params import LOCAL_DATA_PATH
 
 
 # to be fixed: json file should be overwritten. appends atm

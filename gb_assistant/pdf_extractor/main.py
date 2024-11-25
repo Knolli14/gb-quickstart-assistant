@@ -1,5 +1,4 @@
 
-#from params import URL
 from gb_assistant.pdf_extractor.extract import get_games, download_pdfs
 from gb_assistant.pdf_extractor.data import save_games_list
 

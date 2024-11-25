@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from pdf_extractor.data import load_games_list, save_pdf
+from gb_assistant.pdf_extractor.data import load_games_list, save_pdf
 
 
 def get_soup(url, page=1):

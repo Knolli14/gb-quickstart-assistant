@@ -5,4 +5,7 @@ raw_data/
 *.pdf
 *.json
 
-*__pycache__*
+
+*pycache*
+
+*.ipynb

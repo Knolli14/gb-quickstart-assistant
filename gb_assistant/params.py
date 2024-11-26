@@ -5,3 +5,5 @@ LOCAL_DATA_PATH = os.path.join(
     "..",
     "raw_data"
 )
+
+LLAMA_CLOUD_API_KEY = os.environ.get("LLAMA_CLOUD_API_KEY")

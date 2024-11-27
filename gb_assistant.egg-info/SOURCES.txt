@@ -11,6 +11,7 @@ gb_assistant.egg-info/top_level.txt
 gb_assistant/API/__init__.py
 gb_assistant/api/__init__.py
 gb_assistant/api/fast.py
+gb_assistant/api/webapp.py
 gb_assistant/pdf_extractor/__init__.py
 gb_assistant/pdf_extractor/data.py
 gb_assistant/pdf_extractor/extract.py

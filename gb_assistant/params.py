@@ -7,3 +7,4 @@ LOCAL_DATA_PATH = os.path.join(
 )
 
 LLAMA_CLOUD_API_KEY = os.environ.get("LLAMA_CLOUD_API_KEY")
+GC_PROJECT_ID = os.environ.get("GC_PROJECT_ID")

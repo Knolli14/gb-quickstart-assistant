@@ -1,8 +1,9 @@
 raw_data/
-
+output_chunks/
 .env
 
 *.pdf
 *.json
-
+*.ipynb
 *__pycache__*
+.DS_Store

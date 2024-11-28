@@ -6,3 +6,6 @@ raw_data/
 *.json
 
 *__pycache__*
+
+
+gb_assistant/notebooks/

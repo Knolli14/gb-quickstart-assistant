@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from gb_assistant.simple_model.model import load_model, answer_question
 
 app = FastAPI()
+app.state.model = load_model()
 
 # Allowing all middleware is optional, but good practice for dev purposes
 app.add_middleware(
@@ -18,4 +20,5 @@ def root():
 
 @app.get("/prompt")
 def predict(prompt:str):
-    return {'Answer':f'this is the your question: {prompt}'}
+    model= app.state.model
+    return {'Answer':answer_question(model, prompt)}

@@ -5,3 +5,6 @@ LOCAL_DATA_PATH = os.path.join(
     "..",
     "raw_data"
 )
+
+
+GAME_NAME = "3 secrets"

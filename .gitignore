@@ -1,5 +1,6 @@
 raw_data/
 notebooks/
+gb_assistant/params.py
 
 .env
 

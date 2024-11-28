@@ -9,3 +9,5 @@ raw_data/
 *pycache*
 
 *.ipynb
+
+.python-version

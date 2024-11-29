@@ -6,8 +6,5 @@ gb_assistant/params.py
 *.pyc
 *.pdf
 *.json
-
-
-
-
+*.DS_Store
 *.ipynb

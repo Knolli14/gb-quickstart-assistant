@@ -6,6 +6,6 @@ raw_data/
 *.json
 
 
-*pycache*
+
 
 *.ipynb

@@ -8,3 +8,4 @@ LOCAL_DATA_PATH = os.path.join(
 
 
 GAME_NAME = "3 secrets"
+TEST="something"

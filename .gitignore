@@ -3,7 +3,7 @@ notebooks/
 gb_assistant/params.py
 
 .env
-
+*.pyc
 *.pdf
 *.json
 

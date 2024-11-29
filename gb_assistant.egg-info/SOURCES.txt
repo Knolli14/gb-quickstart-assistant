@@ -17,4 +17,7 @@ gb_assistant/pdf_extractor/data.py
 gb_assistant/pdf_extractor/extract.py
 gb_assistant/pdf_extractor/main.py
 gb_assistant/simple_model/__init__.py
+gb_assistant/simple_model/chroma.py
+gb_assistant/simple_model/llm.py
+gb_assistant/simple_model/main.py
 gb_assistant/simple_model/model.py

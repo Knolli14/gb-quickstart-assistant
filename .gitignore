@@ -7,4 +7,7 @@ gb_assistant/params.py
 *.pdf
 *.json
 
-*__pycache__*
+
+
+
+*.ipynb

@@ -21,3 +21,4 @@ gb_assistant/simple_model/chroma.py
 gb_assistant/simple_model/llm.py
 gb_assistant/simple_model/main.py
 gb_assistant/simple_model/model.py
+gb_assistant/simple_model/test.py

@@ -1,6 +1,6 @@
-FROM python:3.10.6-buster
+FROM --platform=linux/amd64 python:3.10.6-buster
 COPY gb_assistant /gb_assistant
-COPY req.txt /requirements.txt
+COPY requirements.txt /requirements.txt
 COPY setup.py /setup.py
 RUN pip install -r requirements.txt
 RUN pip install .

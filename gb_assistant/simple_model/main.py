@@ -2,6 +2,9 @@ import os
 import gb_assistant.params as params
 from gb_assistant.simple_model.chroma import setup_chromadb
 from gb_assistant.simple_model.llm import load_pdfs, split_text, embed
+from transformers import pipeline
+from sentence_transformers import SentenceTransformer
+
 
 game_file = params.GAME_NAME + ".pdf"
 abs_path = os.path.join(os.getcwd(), "raw_data", game_file)

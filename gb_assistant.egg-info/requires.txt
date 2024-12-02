@@ -20,8 +20,6 @@ protobuf==3.19.6
 h5py==3.10.0
 db-dtypes
 pyarrow
-mlflow==2.1.1
-prefect==2.19.2
 python-dotenv
 psycopg2-binary
 huggingface-hub
@@ -31,8 +29,11 @@ fastapi==0.108.0
 pytz
 uvicorn
 streamlit
-jupyterlab
-notebook
+transformers
+langchain-community
+langchain-text-splitters
+llama-index
+sentence-transformers
 
 [:sys_platform != "darwin"]
 tensorflow==2.10.0

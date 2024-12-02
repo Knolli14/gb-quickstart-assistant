@@ -23,7 +23,7 @@ with st.form(key="query_form"):
     if submit_button:
         if user_input:
             # Send request to FastAPI
-            response = requests.get(api_url, params={"prompt": user_input})
+            response = requests.get(api_url, params={"query": user_input}, timeout=60)
 
             if response.status_code == 200:
                 # Display the answer from FastAPI

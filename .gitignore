@@ -1,11 +1,10 @@
 raw_data/
+notebooks/
+gb_assistant/params.py
 
 .env
-
+*.pyc
 *.pdf
 *.json
-
-
-
-
+*.DS_Store
 *.ipynb

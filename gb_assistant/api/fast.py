@@ -25,9 +25,22 @@ def root():
 
 @app.get("/prompt")
 def predict(query:str):
-    """return basic prediction"""
+    """
+    return basic prediction along with game name and certainty score
+    """
     model= app.state.model
-    return {'Answer':answer_question(model, query)}
+
+    result = answer_question(model, query)
+    answer = result.get("answer", "no answer found")
+    certainty = result.get("certainty", 1.0)
+
+    return {
+        'Answer': answer,
+        'Game_Name': params.Game_Name,
+            #NGE: added a key/value pair to retrieve the name of the game that has been identified in the query/retrival process
+            #Needs to be connected upstream to ensure that the name of the game is provided from the endpoint
+        'certainty': certainty, # add certainty to the response
+    }
 
 # @app.get("/prompt")
 # def fancypred(query:str):

@@ -48,7 +48,7 @@ def get_games(url,  language="English"):
 
     games_list = []
 
-    for page in range(1): # substitute for dyn.solution
+    for page in range(395): # substitute for dyn.solution
         print("Extracting from page", page+1)
         soup = get_soup(url, page)
 

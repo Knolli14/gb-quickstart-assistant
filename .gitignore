@@ -8,3 +8,6 @@ gb_assistant/params.py
 *.json
 *.DS_Store
 *.ipynb
+
+*__pycache__*
+*.DS_Store

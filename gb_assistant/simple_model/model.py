@@ -54,4 +54,5 @@ def answer_question(model, question:str):
 
     return response
 
+
 print(answer_question(load_model(),"how to win?"))

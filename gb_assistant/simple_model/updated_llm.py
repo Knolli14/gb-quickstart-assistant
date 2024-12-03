@@ -26,6 +26,7 @@ if __name__ == "__main__":
 
     # Test the LLM with a sample query
     query = "What did King of Babylon do?"
+
     embed_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
     embedded_query = embed_model.encode(query)
     query_results = collection.query(query_embeddings=embedded_query,n_results=3)

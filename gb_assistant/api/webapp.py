@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-import gb_assistant.params as params
+import json
 
 # FastAPI endpoint URL
 api_url = "http://127.0.0.1:8000/prompt"  # Ensure the FastAPI app is running
@@ -13,7 +13,10 @@ st.title("Welcome to the BG Assistant - this is the place where you find your an
 
 # List of games
 # TODO: add games list
-games_list = ["kingdomino", "battle sheep", "dr eureka", "codenames", "when i dream", "unlock escape adventures", "terraforming mars", "7 wonders duel", "exploding kittens", "this war of mine the board game", "queendomino", "7 wonders"]
+with open("games.json", "r") as f:
+    games_list = json.loads(f.read())
+
+#games_list = ["kingdomino", "battle sheep", "dr eureka", "codenames", "when i dream", "unlock escape adventures", "terraforming mars", "seven wonders duel", "exploding kittens", "this war of mine the board game", "queendomino", "7 wonders", "catan"]
 
 
 # Dynamic game suggestion input
@@ -25,7 +28,7 @@ game_input = st.text_input("Game Name")
 if game_input:
     filtered_games = [game for game in games_list if game_input.lower() in game.lower()]
 else:
-    filtered_game = st.selectbox("Select the game from the suggestions:", filtered_games)
+    filtered_game = st.selectbox("Select the game from the suggestions:",game_input)
 
 
 #Show filtered games in a dropdown
@@ -60,8 +63,16 @@ with st.form(key="query_form"):
                         # Parse the JSON response
                         response_data = response.json()
                         # Display the answer from FastAPI
-                        answer = response_data.get("Answer", "No answer provided.")
-                        st.balloons()
+                        answer = response_data.get("answer", "No answer provided.")[0]["generated_text"]
+                        dist = response_data.get("distance")
+
+                        if min(dist) <= 0.7:
+                            st.balloons()
+                            st.write(answer)
+
+                        else:
+                            st.write("Im dumb")
+
                     else:
                         st.write("Error: Could not retrieve answer from the API.")
                 except Exception as e:

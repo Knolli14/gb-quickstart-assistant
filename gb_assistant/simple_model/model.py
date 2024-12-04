@@ -4,6 +4,9 @@ import PyPDF2
 import os
 import chromadb
 from sentence_transformers import SentenceTransformer
+from gb_assistant.simple_model.chroma import setup_database
+from gb_assistant.simple_model.bucket import download_blob
+
 
 game_file = params.GAME_NAME + ".pdf"
 abs_path = os.path.join(os.getcwd(), "raw_data", game_file)
@@ -38,9 +41,9 @@ def answer_question(model, question:str):
     collection = client.get_collection(
         name="gb-assistant-complete"
         )
-    print(collection.count())
+
     # Load the LLM
-    qa_pipe = load_llm()
+    qa_pipe = model
 
     # Test the LLM with a sample query
     query = "What are the rules for scoring in this game?"
@@ -54,5 +57,23 @@ def answer_question(model, question:str):
 
     return response
 
+# new by Olli
+def create_answer(model, query, gametitle):
+
+    store_path = "path/to/store"
+    game_chunks = download_blob("use params", gametitle+".pdf")
+
+    vindex = setup_database(store_path, gametitle, game_chunks)
+
+    embed_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+    embedded_query = embed_model.encode(query)
+
+    query_results = vindex.query(query_embeddings=embedded_query,n_results=3)
+
+    context = "\n\n".join(query_results["documents"][0])
+    prompt = context+" "+query
+    response = model(prompt, max_length=100)
+
+    return response
 
 print(answer_question(load_model(),"how to win?"))

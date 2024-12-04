@@ -1,5 +1,4 @@
 from google.cloud import storage
-from gb_assistant.params import *
 
 def download_blob(bucket_name, source_blob_name):
     """Downloads a blob from the bucket."""

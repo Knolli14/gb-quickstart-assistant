@@ -35,7 +35,7 @@ psycopg2-binary
 
 huggingface-hub
 dill==0.3.6
-PyPDF2
+#PyPDF2
 
 # API
 fastapi==0.108.0

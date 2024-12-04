@@ -12,6 +12,7 @@ st.title("Welcome to the BG Assistant - this is the place where you find your an
 
 
 # List of games
+# TODO: add games list
 games_list = ["kingdomino", "battle sheep", "dr eureka", "codenames", "when i dream", "unlock escape adventures", "terraforming mars", "7 wonders duel", "exploding kittens", "this war of mine the board game", "queendomino", "7 wonders"]
 
 

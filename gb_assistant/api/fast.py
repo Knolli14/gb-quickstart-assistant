@@ -1,8 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from gb_assistant.simple_model.model import load_model, answer_question
-#from gb_assistant.simple_model.llm import load_llm, load_embeder
-#from gb_assistant.simple_model.main import gen_answer, collection_setup
+from gb_assistant.simple_model.model import load_model, create_answer
 
 app = FastAPI()
 app.state.model = load_model()
@@ -24,22 +22,24 @@ def root():
     return {'Greeting': 'This is the API for the BG LLM'}
 
 @app.get("/prompt")
-def predict(query:str):
+def predict(query:str, game:str):
     """
     return basic prediction along with game name and certainty score
     """
     model= app.state.model
 
-    result = answer_question(model, query)
-    answer = result.get("answer", "no answer found")
-    certainty = result.get("certainty", 1.0)
+    result = create_answer(model, query, game)
+    print(result)
+
+    #answer = result.get("answer", "no answer found")
+    #certainty = result.get("certainty", 1.0)
 
     return {
-        'Answer': answer,
-        'Game_Name': params.Game_Name,
+        'Answer': "worked",
+        #'Game_Name': game,
             #NGE: added a key/value pair to retrieve the name of the game that has been identified in the query/retrival process
             #Needs to be connected upstream to ensure that the name of the game is provided from the endpoint
-        'certainty': certainty, # add certainty to the response
+        #'certainty': certainty, # add certainty to the response
     }
 
 # @app.get("/prompt")

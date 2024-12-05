@@ -13,9 +13,9 @@ pandas==1.5.3
 scipy==1.10.0
 scikit-learn==1.3.1
 #google-cloud-bigquery
-#google-cloud-storage==2.14.0
-#google-api-core==2.8.2
-#googleapis-common-protos==1.56.4
+google-cloud-storage
+#google-api-core
+#googleapis-common-protos
 protobuf==3.19.0
 h5py
 db-dtypes
@@ -33,9 +33,9 @@ tensorflow==2.10.0; sys_platform != 'darwin' # Windows & Ubuntu Intel chips
 python-dotenv
 psycopg2-binary
 
-huggingface-hub
+#huggingface-hub
 dill==0.3.6
-PyPDF2
+#PyPDF2
 
 # API
 fastapi==0.108.0
@@ -43,13 +43,13 @@ pytz
 uvicorn
 
 #webapp
-streamlit
+#streamlit
 
 
 transformers
 langchain-community
 langchain-text-splitters
-llama-index
+#llama-index
 sentence-transformers
 
 chromadb

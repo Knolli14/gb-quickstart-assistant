@@ -30,3 +30,4 @@ def predict(query:str, game:str):
 
     result = create_answer(model, query, game)
     return result
+

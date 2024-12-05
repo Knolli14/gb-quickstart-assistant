@@ -1,0 +1,25 @@
+# Use a smaller base image
+FROM python:3.10-slim-bookworm
+
+# Set working directory
+WORKDIR /app
+
+# Install necessary system dependencies in one RUN step and clean up
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libsqlite3-dev \
+    && rm -rf /var/lib/apt/lists/*  # Clean up apt cache
+
+# Copy the application code
+COPY gb_assistant /gb_assistant
+COPY requirements.txt /requirements.txt
+COPY setup.py /setup.py
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir .
+
+# Expose the application port
+EXPOSE $PORT
+
+# Command to run the app (adjust if necessary)
+CMD ["uvicorn", "gb_assistant.api.fast:app", "--host", "0.0.0.0", "--port", "$PORT"]

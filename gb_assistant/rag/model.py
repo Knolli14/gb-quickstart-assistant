@@ -8,6 +8,8 @@ import json
 def load_model():
     """Instanciate the text generation model"""
 
+    #pipe = pipeline("text-generation", model="EleutherAI/gpt-neo-2.7B")
+    #pipe = pipeline("text-generation", model="distilgpt2")
     pipe = pipeline("text2text-generation", model="google/flan-t5-small")
     return pipe
 

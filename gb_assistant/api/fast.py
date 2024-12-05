@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from gb_assistant.simple_model.model import load_model, create_answer
+from gb_assistant.rag.model import load_model, create_answer
 
 app = FastAPI()
 app.state.model = load_model()
@@ -29,24 +29,4 @@ def predict(query:str, game:str):
     model= app.state.model
 
     result = create_answer(model, query, game)
-    print(result)
-
-    #answer = result.get("answer", "no answer found")
-    #certainty = result.get("certainty", 1.0)
-
-    return {
-        'Answer': "worked",
-        #'Game_Name': game,
-            #NGE: added a key/value pair to retrieve the name of the game that has been identified in the query/retrival process
-            #Needs to be connected upstream to ensure that the name of the game is provided from the endpoint
-        #'certainty': certainty, # add certainty to the response
-    }
-
-# @app.get("/prompt")
-# def fancypred(query:str):
-#     """returns fancy prediction"""
-#     llm=app.state.llm
-#     embed_model=app.state.embeder
-#     collection=collection_setup("my_collection")
-#     answer = gen_answer(embed_model, llm, query, collection)
-#     return answer
+    return result

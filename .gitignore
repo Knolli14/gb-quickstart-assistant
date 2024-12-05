@@ -1,13 +1,13 @@
 raw_data/
 notebooks/
-gb_assistant/params.py
+jsons/
+store/*
 
 .env
 *.pyc
 *.pdf
 *.json
-*.DS_Store
 *.ipynb
 
 *__pycache__*
-*.DS_Store
+.DS_Store
